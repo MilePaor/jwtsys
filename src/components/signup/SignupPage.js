@@ -1,9 +1,16 @@
 import React from 'react';
+import SignupForm from './SignupForm';
 
 class SignupPage extends React.Component {
+  
+
   render(){
     return (
-      <h1>signup page</h1>
+      <div className="row">
+        <div className="col-md-6 offset-md-3">
+          <SignupForm />
+        </div>
+      </div>
     )
   }
 }
