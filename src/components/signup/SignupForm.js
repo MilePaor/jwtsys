@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 
 class SignupForm extends Component {
   state = {
@@ -15,7 +16,7 @@ class SignupForm extends Component {
   }
   submitForm = e => {
     e.preventDefault();
-    console.log(this.state);
+    this.props.userSingupRequest(this.state)
     
   }
   render() {
@@ -48,4 +49,7 @@ class SignupForm extends Component {
   }
 }
 
+SignupForm.propTypes = {
+  userSingupRequest: PropTypes.func.isRequired
+}
 export default SignupForm;
