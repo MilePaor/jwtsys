@@ -4,6 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import NavigationBar from './components/navigation/NavigationBar';
 import App from './components/app/App';
 import SignUpPage from './components/signup/SignupPage';
+import LoginPage from './components/login/LoginPage';
 import FlashMessages from './components/flash/FlashMessagesList';
 
 const GlobalRouter = props => {
@@ -13,7 +14,9 @@ const GlobalRouter = props => {
           <NavigationBar />
           <FlashMessages />
           <Route exact path="/" component={App} />
-          <Route path="/signup" component={SignUpPage} />  
+          <Route path="/signup" component={SignUpPage} />
+          <Route path="/login" component={LoginPage} />  
+
         </div>
       </BrowserRouter>
   )
