@@ -1,12 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { login } from '../../actions/loginActions';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import { addFlashMessage } from '../../actions/flashMessages' 
-
-
-
 
 class LoginForm extends Component {
   state = {
@@ -21,7 +15,7 @@ class LoginForm extends Component {
       errors: {},
       isLoading: true
     })
-    this.props.login(this.state)
+    this.props.userLoginRequest(this.state)
       .then(res => {
         this.props.addFlashMessage({
           type: 'success',
@@ -71,7 +65,9 @@ class LoginForm extends Component {
 }
 
 LoginForm.propTypes = {
-  login: PropTypes.func.isRequired
+  userLoginRequest: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired
+
 }
 
-export default withRouter(connect(null, { login, addFlashMessage })(LoginForm));
+export default withRouter(LoginForm);

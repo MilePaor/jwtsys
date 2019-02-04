@@ -7,8 +7,6 @@ import { addFlashMessage } from '../../actions/flashMessages'
 import SignupForm from './SignupForm';
 
 class SignupPage extends React.Component {
-  
-
   render(){
     return (
       <div className="row">

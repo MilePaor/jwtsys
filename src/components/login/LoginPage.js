@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import { login } from '../../actions/loginActions';
+import { addFlashMessage } from '../../actions/flashMessages' 
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+
 
 import LoginForm from './LoginForm';
 
@@ -7,11 +13,18 @@ class LoginPage extends Component {
     return (
       <div className="row">
         <div className="col-md-4 offset-md-4">
-          <LoginForm />
+          <LoginForm 
+            userLoginRequest={this.props.login} 
+            addFlashMessage={this.props.addFlashMessage}/>
         </div>
       </div>
     )
   }
 }
 
-export default LoginPage;
+LoginPage.propTypes = {
+  login: PropTypes.func.isRequired,
+  addFlashMessage: PropTypes.func.isRequired
+}
+
+export default connect(null, { login, addFlashMessage })(LoginPage);
