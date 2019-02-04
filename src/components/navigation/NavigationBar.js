@@ -8,12 +8,12 @@ import { Link } from 'react-router-dom';
           <div className="navbar-header">
             <Link to="/"className="navbar-brand">Red Dice</Link>
           </div>
-          <ul className="nav navbar-nav navbar-right">
-            <li>
-              <Link to="/signup">Sign up</Link>
+          <ul className="nav">
+            <li className="nav-item">
+              <Link className="nav-link" to="/signup">Sign up</Link>
             </li>
-            <li>
-              <Link to="/login">Login</Link>
+            <li className="nav-item">
+              <Link className="nav-link" to="/login">Login</Link>
             </li>
           </ul>
           

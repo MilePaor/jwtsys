@@ -1,4 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../../actions/loginActions';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
+import { addFlashMessage } from '../../actions/flashMessages' 
+
+
+
 
 class LoginForm extends Component {
   state = {
@@ -9,6 +17,22 @@ class LoginForm extends Component {
   }
   onSubmit = e => {
     e.preventDefault();
+    this.setState({
+      errors: {},
+      isLoading: true
+    })
+    this.props.login(this.state)
+      .then(res => {
+        this.props.addFlashMessage({
+          type: 'success',
+          text: 'You Login up successfully. Welcome back!'
+        })
+        this.props.history.push('/')
+      })
+      .catch(err => this.setState({
+        errors: 'Error',
+        isLoading: false
+      }))
   }
   onChange = e => {
     this.setState({
@@ -33,9 +57,10 @@ class LoginForm extends Component {
           <input 
             type="password" 
             name="password" 
+            value={this.state.password}
             className="form-control" 
             onChange={this.onChange} 
-            value={this.state.password}/>
+            />
         </div>
         <div className="form-group">
           <button className="btn btn-primary btn-lg" disabled={this.state.isLoading}>Login</button>
@@ -45,4 +70,8 @@ class LoginForm extends Component {
   }
 }
 
-export default LoginForm;
+LoginForm.propTypes = {
+  login: PropTypes.func.isRequired
+}
+
+export default withRouter(connect(null, { login, addFlashMessage })(LoginForm));

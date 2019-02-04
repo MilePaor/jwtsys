@@ -1,3 +1,7 @@
-import axios from 'axios';
+import Axios from 'axios';
 
-const 
+export function login(data) {
+  return dispatch => {
+    return Axios.post('https://jsonplaceholder.typicode.com/posts', data)
+  }
+}
