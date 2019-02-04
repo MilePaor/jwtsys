@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { login } from '../../actions/loginActions';
+import { login } from '../../actions/authActions';
 import { addFlashMessage } from '../../actions/flashMessages' 
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
