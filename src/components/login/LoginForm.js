@@ -4,15 +4,15 @@ import { withRouter } from 'react-router-dom';
 
 class LoginForm extends Component {
   state = {
-    identifier: '',
+    email: '',
     password: '',
-    errors: {},
+    errors: '',
     isLoading: false
   }
   onSubmit = e => {
     e.preventDefault();
     this.setState({
-      errors: {},
+      errors: '',
       isLoading: true
     })
     this.props.userLoginRequest(this.state)
@@ -23,10 +23,12 @@ class LoginForm extends Component {
         })
         this.props.history.push('/')
       })
-      .catch(err => this.setState({
-        errors: 'Error',
-        isLoading: false
-      }))
+      .catch(err => {        
+        this.setState({
+          errors: err.response.data.error,
+          isLoading: false
+        })
+      })
   }
   onChange = e => {
     this.setState({
@@ -37,14 +39,15 @@ class LoginForm extends Component {
     return (
       <form onSubmit={this.onSubmit}>
         <h1>Login</h1>
+        { this.state.errors && <div className="alert alert-danger">{this.state.errors}</div>}
         <div className="form-group">
           <label className="control-label">Username / Email</label>
           <input 
             type="text" 
-            name="identifier" 
+            name="email" 
             className="form-control" 
             onChange={this.onChange} 
-            value={this.state.identifier}/>
+            value={this.state.email}/>
         </div>
         <div className="form-group">
           <label className="control-label">Password</label>
