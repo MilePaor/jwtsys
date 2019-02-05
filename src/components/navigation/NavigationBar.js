@@ -16,7 +16,10 @@ class NavigationBar extends Component {
     const userLinks = (
     <ul className="nav">
       <li className="nav-item">
-        <a href="#" onClick={this.logout}>Logout</a>
+        <Link className="nav-link" to="/new-event">New event</Link>
+      </li>
+      <li className="nav-item">
+        <a href="#" className="nav-link" onClick={this.logout}>Logout</a>
       </li>
     </ul>
     );
