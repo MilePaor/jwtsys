@@ -6,7 +6,7 @@ import App from './components/app/App';
 import SignUpPage from './components/signup/SignupPage';
 import LoginPage from './components/login/LoginPage';
 import FlashMessages from './components/flash/FlashMessagesList';
-import NewEventPage from './components/events/NewEventPage';
+import NewEventContainer from './components/events/NewEventContainer';
 
 import requireAuth from './utils/requireAuth';
 
@@ -19,7 +19,7 @@ const GlobalRouter = props => {
           <Route exact path="/" component={App} />
           <Route path="/signup" component={SignUpPage} />
           <Route path="/login" component={LoginPage} />  
-          <Route path="/new-event" component={requireAuth(NewEventPage)} />
+          <Route path="/new-event" component={requireAuth(NewEventContainer)} />
         </div>
       </BrowserRouter>
   )

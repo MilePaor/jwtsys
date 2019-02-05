@@ -1,4 +1,4 @@
-import Axios from 'axios';
+import axios from 'axios';
 import setAuthorizationToken from '../utils/setAuthorizationToken';
 import jwt from 'jsonwebtoken';
 import { SET_CURRENT_USER } from './types';
@@ -20,7 +20,7 @@ export function logout (){
 
 export function login(data) {
   return dispatch => {
-    return Axios.post('https://e-wallet.rs/api/admin/auth/login', data)
+    return axios.post('https://e-wallet.rs/api/admin/auth/login', data)
       .then(res => {
         const token = res.data.access_token;
         localStorage.setItem('jwtToken', token);

@@ -5,7 +5,7 @@ import { createEvent } from '../../actions/eventActions';
 import PropTypes from 'prop-types';
 
 
-class NewEventPage extends Component {
+class NewEventContainer extends Component {
   render () {
     return (
       <div>
@@ -15,8 +15,8 @@ class NewEventPage extends Component {
   }
 }
 
-NewEventPage.propTypes = {
+NewEventContainer.propTypes = {
   createEvent: PropTypes.func.isRequired
 }
 
-export default connect(null, { createEvent })(NewEventPage); 
+export default connect(null, { createEvent })(NewEventContainer); 
