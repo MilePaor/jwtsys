@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 
 import NavigationBar from './components/navigation/NavigationBar';
-import App from './components/app/App';
+import App from './components/HomePage/HomePageContainer';
 import SignUpPage from './components/signup/SignupPage';
 import LoginPage from './components/login/LoginPage';
 import FlashMessages from './components/flash/FlashMessagesList';
